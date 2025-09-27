@@ -17,9 +17,7 @@ export class HabitCardComponent {
   @Output() onUpdate = new EventEmitter<Habit>();
 
   increment() {
-    if (this.habit.progress < this.habit.goal) {
-      this.onUpdate.emit({ ...this.habit, progress: this.habit.progress + 1 });
-    }
+    this.onUpdate.emit({ ...this.habit, progress: this.habit.progress + 1 });
   }
 
   decrement() {

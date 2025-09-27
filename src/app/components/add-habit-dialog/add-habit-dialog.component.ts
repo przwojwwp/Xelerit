@@ -1,31 +1,84 @@
 import { Component } from '@angular/core';
-import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 import { Habit } from '../../models/habit.model';
 
 @Component({
   selector: 'app-add-habit-dialog',
   standalone: true,
   templateUrl: './add-habit-dialog.component.html',
+  styleUrls: ['./add-habit-dialog.component.css'],
   imports: [
     CommonModule,
     FormsModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     MatButtonModule,
   ],
 })
 export class AddHabitDialogComponent {
+  // Formularzowe pola
   name: string = '';
   goal: number = 1;
   unit: string = '';
+  icon: string = '✨';
+  color: string = 'linear-gradient(to right, #ece9e6, #ffffff)';
+
+  // domyślne nawyki do wyboru
+  defaultHabits = [
+    {
+      name: 'Woda',
+      unit: 'szklanki',
+      goal: 8,
+      icon: '💧',
+      color: 'linear-gradient(to right,#89f7fe,#66a6ff)',
+    },
+    {
+      name: 'Sen',
+      unit: 'godziny',
+      goal: 8,
+      icon: '🌙',
+      color: 'linear-gradient(to right,#a18cd1,#fbc2eb)',
+    },
+    {
+      name: 'Kroki',
+      unit: 'kroki',
+      goal: 10000,
+      icon: '🚶',
+      color: 'linear-gradient(to right,#56ab2f,#a8e063)',
+    },
+    {
+      name: 'Meditation',
+      unit: 'minuty',
+      goal: 10,
+      icon: '🧘',
+      color: 'linear-gradient(to right,#43cea2,#185a9d)',
+    },
+    {
+      name: 'Reading',
+      unit: 'strony',
+      goal: 20,
+      icon: '📖',
+      color: 'linear-gradient(to right,#ffd89b,#19547b)',
+    },
+  ];
 
   constructor(private dialogRef: MatDialogRef<AddHabitDialogComponent>) {}
+
+  applyDefault(h: any) {
+    this.name = h.name;
+    this.unit = h.unit;
+    this.goal = h.goal;
+    this.icon = h.icon;
+    this.color = h.color;
+  }
 
   save() {
     const habit: Habit = {
@@ -34,6 +87,8 @@ export class AddHabitDialogComponent {
       goal: this.goal,
       progress: 0,
       unit: this.unit || '',
+      icon: this.icon,
+      color: this.color,
     };
     this.dialogRef.close(habit);
   }

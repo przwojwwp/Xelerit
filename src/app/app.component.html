@@ -4,6 +4,12 @@
   <button mat-mini-fab color="accent" (click)="openAddHabitDialog()">+</button>
 </mat-toolbar>
 
+<section class="dashboard">
+  <h2>Twój progres 📊</h2>
+  <p>Ukończono {{ completedHabits }} z {{ habits.length }} nawyków 🎉</p>
+  <mat-progress-bar mode="determinate" [value]="completionRate"></mat-progress-bar>
+</section>
+
 <div class="container">
   <app-habit-list [habits]="habits" (update)="handleUpdate($event)"></app-habit-list>
 </div>
