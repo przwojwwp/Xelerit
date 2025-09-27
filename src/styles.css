@@ -5,7 +5,3 @@
   gap: 15px;
   justify-content: center;
 }
-
-app-habit-card {
-  flex: 1 1 280px;
-}

@@ -1,12 +1,48 @@
-mat-card {
+.habit-card {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
   border-radius: 12px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   padding: 15px;
-  width: 280px;
 }
 
-p {
-  margin: 8px 0;
+.card-content {
+  flex: 1;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 60px;
+}
+
+
+.card-actions button {
+  width: 40px;
+  height: 40px;
+}
+
+.card-actions input {
+  width: 70px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.edit-goal input,
+.input-add input {
+  width: 70px;
+  margin: 0;
+}
+
+.edit-goal button,
+.input-add button {
+  width: auto;
+  font-size: 0.8rem;
+  padding: 2px 8px;
 }
 
 .trophies {

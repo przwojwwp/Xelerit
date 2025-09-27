@@ -1,38 +1,42 @@
-<mat-card [style.background]="habit.color">
-  <mat-card-title> {{ habit.icon }} {{ habit.name }} </mat-card-title>
-  <p>{{ habit.description }}</p>
+<mat-card [style.background]="habit.color" class="habit-card">
+  <div class="card-content">
+    <mat-card-title>
+      {{ habit.icon }} {{ habit.name }}
 
-  <mat-progress-bar [value]="(habit.progress / habit.goal) * 100"></mat-progress-bar>
+      <button mat-mini-fab color="accent" (click)="toggleEdit()">✏️</button>
+    </mat-card-title>
+    <p>{{ habit.description }}</p>
 
-  <p>{{ habit.progress }} / {{ habit.goal }} {{ habit.unit }}</p>
+    <p>{{ habit.progress }} / {{ habit.goal }} {{ habit.unit }}</p>
+    <mat-progress-bar [value]="(habit.progress / habit.goal) * 100"></mat-progress-bar>
 
-  <div class="trophies" *ngIf="habit.progress >= habit.goal">
-    🏆 <span *ngIf="habit.progress >= habit.goal * 2">🏆</span>
-    <span *ngIf="habit.progress >= habit.goal * 3">🏆</span>
+    <!-- <div class="trophies" *ngIf="habit.progress >= habit.goal">
+      🏆 <span *ngIf="habit.progress >= habit.goal * 2">🏆</span>
+      <span *ngIf="habit.progress >= habit.goal * 3">🏆</span>
+    </div> -->
+
+    <div class="history">
+      <div
+        *ngFor="let h of habit.history"
+        class="day"
+        [style.background]="h >= habit.goal ? '#4caf50' : '#ccc'"
+      ></div>
+    </div>
+
+    <div class="input-add">
+      <input type="number" [(ngModel)]="extraValue" placeholder="Dodaj wartość" />
+      <button mat-button color="accent" (click)="addValue()">Dodaj</button>
+    </div>
   </div>
 
-  <div class="history">
-    <div
-      *ngFor="let h of habit.history"
-      class="day"
-      [style.background]="h >= habit.goal ? '#4caf50' : '#ccc'"
-    ></div>
-  </div>
+  <div class="card-actions">
+    <div *ngIf="editMode" class="edit-goal">
+      <input type="number" [(ngModel)]="habit.goal" />
+      <button mat-button color="primary" (click)="saveGoal()">Zapisz cel</button>
+    </div>
 
-  <div *ngIf="editMode">
-    <input type="number" [(ngModel)]="habit.goal" />
-    <button mat-button color="primary" (click)="saveGoal()">Zapisz cel</button>
-  </div>
-
-  <div class="input-add">
-    <input type="number" [(ngModel)]="extraValue" placeholder="Dodaj wartość" />
-    <button mat-button color="accent" (click)="addValue()">Dodaj</button>
-  </div>
-
-  <mat-card-actions>
     <button mat-mini-fab color="primary" (click)="increment()">+</button>
     <button mat-mini-fab color="warn" (click)="decrement()">-</button>
-    <button mat-mini-fab color="accent" (click)="toggleEdit()">✏️</button>
     <button mat-mini-fab color="warn" (click)="delete()">🗑️</button>
-  </mat-card-actions>
+  </div>
 </mat-card>

@@ -5,8 +5,17 @@
 </mat-toolbar>
 
 <section class="dashboard">
-  <h2>Twój progres 📊</h2>
-  <p>Ukończono {{ completedHabits }} z {{ habits.length }} nawyków 🎉</p>
+  <div class="dashboard-info">
+    <h2>Twój progres 📊</h2>
+    <p>Ukończono {{ completedHabits }} z {{ habits.length }} nawyków 🎉</p>
+  </div>
+
+  <p class="dashboard-trophies">
+    <span [class.active]="completionRate >= 100">🏆</span>
+    <span [class.active]="completionRate >= 200">🏆</span>
+    <span [class.active]="completionRate >= 300">🏆</span>
+    <span [class.active]="completionRate >= 400">🏆</span>
+  </p>
   <mat-progress-bar mode="determinate" [value]="completionRate"></mat-progress-bar>
 </section>
 
