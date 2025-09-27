@@ -11,5 +11,6 @@
 </section>
 
 <div class="container">
-  <app-habit-list [habits]="habits" (update)="handleUpdate($event)"></app-habit-list>
+  <app-habit-list [habits]="habits" (update)="handleUpdate($event)" (delete)="handleDelete($event)">
+  </app-habit-list>
 </div>

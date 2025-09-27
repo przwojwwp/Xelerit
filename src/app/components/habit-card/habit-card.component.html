@@ -1,14 +1,13 @@
 <mat-card [style.background]="habit.color">
-  <mat-card-title>{{ habit.icon }} {{ habit.name }}</mat-card-title>
+  <mat-card-title> {{ habit.icon }} {{ habit.name }} </mat-card-title>
   <p>{{ habit.description }}</p>
 
-  <mat-progress-bar [value]="(habit.progress / habit.goal) * 100"> </mat-progress-bar>
+  <mat-progress-bar [value]="(habit.progress / habit.goal) * 100"></mat-progress-bar>
 
   <p>{{ habit.progress }} / {{ habit.goal }} {{ habit.unit }}</p>
 
   <div class="trophies" *ngIf="habit.progress >= habit.goal">
-    🏆
-    <span *ngIf="habit.progress >= habit.goal * 2">🏆</span>
+    🏆 <span *ngIf="habit.progress >= habit.goal * 2">🏆</span>
     <span *ngIf="habit.progress >= habit.goal * 3">🏆</span>
   </div>
 
@@ -20,8 +19,20 @@
     ></div>
   </div>
 
+  <div *ngIf="editMode">
+    <input type="number" [(ngModel)]="habit.goal" />
+    <button mat-button color="primary" (click)="saveGoal()">Zapisz cel</button>
+  </div>
+
+  <div class="input-add">
+    <input type="number" [(ngModel)]="extraValue" placeholder="Dodaj wartość" />
+    <button mat-button color="accent" (click)="addValue()">Dodaj</button>
+  </div>
+
   <mat-card-actions>
     <button mat-mini-fab color="primary" (click)="increment()">+</button>
     <button mat-mini-fab color="warn" (click)="decrement()">-</button>
+    <button mat-mini-fab color="accent" (click)="toggleEdit()">✏️</button>
+    <button mat-mini-fab color="warn" (click)="delete()">🗑️</button>
   </mat-card-actions>
 </mat-card>

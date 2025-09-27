@@ -1,4 +1,9 @@
 <div class="habit-list">
-  <app-habit-card *ngFor="let habit of habits" [habit]="habit" (onUpdate)="update.emit($event)">
+  <app-habit-card
+    *ngFor="let habit of habits"
+    [habit]="habit"
+    (onUpdate)="update.emit($event)"
+    (onDelete)="delete.emit($event)"
+  >
   </app-habit-card>
 </div>

@@ -13,4 +13,5 @@ import { HabitCardComponent } from '../habit-card/habit-card.component';
 export class HabitListComponent {
   @Input() habits: Habit[] = [];
   @Output() update = new EventEmitter<Habit>();
+  @Output() delete = new EventEmitter<number>();
 }
