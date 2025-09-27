@@ -1,3 +1,12 @@
+mat-toolbar {
+  padding: 0;
+  background-color: #e6dedeff;
+  width: 100vw;
+  margin-top: -16px;
+  margin-left: -16px;
+  padding: 16px;
+}
+
 .spacer {
   flex: 1 1 auto;
 }
