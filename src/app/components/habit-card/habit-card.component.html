@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-title>{{ habit.name }}</mat-card-title>
+  <mat-card-content>
+    <mat-progress-bar mode="determinate" [value]="(habit.progress / habit.goal) * 100">
+    </mat-progress-bar>
+    <p>{{ habit.progress }} / {{ habit.goal }} {{ habit.unit }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-mini-fab color="primary" (click)="increment()">+</button>
+    <button mat-mini-fab color="warn" (click)="decrement()">-</button>
+  </mat-card-actions>
+</mat-card>

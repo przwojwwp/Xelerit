@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <span>🌱 Habit Tracker</span>
+  <span class="spacer"></span>
+  <button mat-mini-fab color="accent" (click)="openAddHabitDialog()">+</button>
+</mat-toolbar>
+
+<div class="container">
+  <app-habit-list [habits]="habits" (update)="handleUpdate($event)"></app-habit-list>
+</div>

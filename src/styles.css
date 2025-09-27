@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+.habit-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+}
+
+app-habit-card {
+  flex: 1 1 280px;
+}
