@@ -6,9 +6,17 @@
   <mat-progress-bar [value]="(habit.progress / habit.goal) * 100"></mat-progress-bar>
 
   <div class="card-actions">
-    <button mat-mini-fab color="primary" (click)="increment()">+</button>
-    <button mat-mini-fab color="warn" (click)="decrement()">-</button>
-    <button mat-mini-fab color="warn" (click)="delete()">🗑️</button>
-    <button mat-mini-fab color="accent" (click)="openEditDialog()">✏️</button>
+    <button mat-mini-fab color="primary" (click)="increment()">
+      <i class="fas fa-solid fa-plus"></i>
+    </button>
+    <button mat-mini-fab color="warn" (click)="decrement()">
+      <i class="fas fa-solid fa-minus"></i>
+    </button>
+    <button mat-mini-fab color="warn" (click)="delete()">
+      <i class="fas fa-trash"></i>
+    </button>
+    <button mat-mini-fab color="accent" (click)="openEditDialog()">
+      <i class="fas fa-edit"></i>
+    </button>
   </div>
 </mat-card>

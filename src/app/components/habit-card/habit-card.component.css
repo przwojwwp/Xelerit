@@ -33,6 +33,7 @@ mat-progress-bar {
 .card-actions button {
   width: 32px;
   height: 32px;
+  font-size: 18px;
 }
 
 .card-actions input {
@@ -54,7 +55,10 @@ mat-progress-bar {
   padding: 2px 8px;
 }
 
-.trophies {
-  margin: 8px 0;
-  font-size: 1.2rem;
+.fas {
+  transform: translateY(5%);
+}
+
+.fas.fa-edit {
+  transform: translateY(2.5%);
 }
