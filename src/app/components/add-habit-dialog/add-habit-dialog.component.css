@@ -2,3 +2,31 @@ mat-form-field {
   width: 100%;
   display: block;
 }
+
+mat-option {
+  display: block;
+}
+
+.option-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+}
+
+.option-content i {
+  margin-left: 8px;
+}
+
+::ng-deep .mat-pseudo-checkbox {
+  display: none !important;
+}
+
+::ng-deep .mdc-menu-surface--open {
+  padding: 0 !important;
+}
+
+.option-placeholder {
+  display: none;
+}

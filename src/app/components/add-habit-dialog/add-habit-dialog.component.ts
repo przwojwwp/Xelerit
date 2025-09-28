@@ -31,41 +31,43 @@ export class AddHabitDialogComponent {
   icon: string = '✨';
   color: string = 'linear-gradient(to right, #ece9e6, #ffffff)';
 
+  selectedHabit: any = null;
+
   // domyślne nawyki do wyboru
   defaultHabits = [
     {
       name: 'Woda',
       unit: 'szklanki',
       goal: 8,
-      icon: '💧',
+      icon: 'fa-droplet fa-solid',
       color: 'linear-gradient(to right,#89f7fe,#66a6ff)',
     },
     {
       name: 'Sen',
       unit: 'godziny',
       goal: 8,
-      icon: '🌙',
+      icon: 'fa-bed fa-solid',
       color: 'linear-gradient(to right,#a18cd1,#fbc2eb)',
     },
     {
       name: 'Kroki',
       unit: 'kroki',
       goal: 10000,
-      icon: '🚶',
+      icon: 'fa-shoe-prints fa-solid',
       color: 'linear-gradient(to right,#56ab2f,#a8e063)',
     },
     {
       name: 'Meditation',
       unit: 'minuty',
       goal: 10,
-      icon: '🧘',
+      icon: 'fa-solid fa-spa',
       color: 'linear-gradient(to right,#43cea2,#185a9d)',
     },
     {
       name: 'Reading',
       unit: 'strony',
       goal: 20,
-      icon: '📖',
+      icon: 'fas fa-book-reader',
       color: 'linear-gradient(to right,#ffd89b,#19547b)',
     },
   ];

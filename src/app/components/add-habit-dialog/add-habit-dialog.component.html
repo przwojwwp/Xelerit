@@ -2,9 +2,13 @@
 <mat-dialog-content>
   <mat-form-field>
     <mat-label>Wybierz nawyk domyślny</mat-label>
-    <mat-select (selectionChange)="applyDefault($event.value)">
+    <mat-select [(ngModel)]="selectedHabit" (selectionChange)="applyDefault($event.value)">
+      <mat-option class="option-placeholder">Wybierz nawyk domyślny</mat-option>
       <mat-option *ngFor="let h of defaultHabits" [value]="h">
-        {{ h.icon }} {{ h.name }}
+        <span class="option-content">
+          <span>{{ h.name }}</span>
+          <i class="{{ h.icon }}"></i>
+        </span>
       </mat-option>
     </mat-select>
   </mat-form-field>

@@ -29,45 +29,43 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const stored = localStorage.getItem('habits');
-    this.habits =
-      // stored
-      // ? JSON.parse(stored)
-      // :
-      [
-        {
-          id: 1,
-          name: 'Woda',
-          goal: 8,
-          progress: 3,
-          unit: 'szklanki',
-          icon: 'fa-solid fa-droplet',
-          color: 'linear-gradient(to right,#89f7fe,#66a6ff)',
-          description: 'Nawodnij organizm',
-          history: [3, 5, 6, 8, 7],
-        },
-        {
-          id: 2,
-          name: 'Kroki',
-          goal: 10000,
-          progress: 4000,
-          unit: 'kroki',
-          icon: 'fa-solid fa-shoe-prints',
-          color: 'linear-gradient(to right,#56ab2f,#a8e063)',
-          description: 'Idź na spacer!',
-          history: [2000, 7000, 10000, 5000],
-        },
-        {
-          id: 3,
-          name: 'Sen',
-          goal: 8,
-          progress: 9,
-          unit: 'godziny',
-          icon: 'fa-solid fa-bed',
-          color: 'linear-gradient(to right,#a18cd1,#fbc2eb)',
-          description: 'Zadbaj o odpoczynek',
-          history: [6, 7, 8, 8, 5],
-        },
-      ];
+    this.habits = stored
+      ? JSON.parse(stored)
+      : [
+          {
+            id: 1,
+            name: 'Woda',
+            goal: 8,
+            progress: 3,
+            unit: 'szklanki',
+            icon: 'fa-solid fa-droplet',
+            color: 'linear-gradient(to right,#89f7fe,#66a6ff)',
+            description: 'Nawodnij organizm',
+            history: [3, 5, 6, 8, 7],
+          },
+          {
+            id: 2,
+            name: 'Kroki',
+            goal: 10000,
+            progress: 4000,
+            unit: 'kroki',
+            icon: 'fa-solid fa-shoe-prints',
+            color: 'linear-gradient(to right,#56ab2f,#a8e063)',
+            description: 'Idź na spacer!',
+            history: [2000, 7000, 10000, 5000],
+          },
+          {
+            id: 3,
+            name: 'Sen',
+            goal: 8,
+            progress: 9,
+            unit: 'godziny',
+            icon: 'fa-solid fa-bed',
+            color: 'linear-gradient(to right,#a18cd1,#fbc2eb)',
+            description: 'Zadbaj o odpoczynek',
+            history: [6, 7, 8, 8, 5],
+          },
+        ];
   }
 
   persist() {
