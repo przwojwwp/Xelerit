@@ -1,6 +1,6 @@
 <mat-card [style.background]="habit.color" class="habit-card">
   <div class="card-content">
-    <mat-card-title> {{ habit.name }} {{ habit.icon }} </mat-card-title>
+    <mat-card-title> {{ habit.name }} <i class="{{ habit.icon }}"></i> </mat-card-title>
     <p class="target">{{ habit.progress }} / {{ habit.goal }} {{ habit.unit }}</p>
   </div>
   <mat-progress-bar [value]="(habit.progress / habit.goal) * 100"></mat-progress-bar>

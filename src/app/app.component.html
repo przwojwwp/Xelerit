@@ -1,20 +1,21 @@
-<mat-toolbar class="header">
-  <span>🌱 Habit Tracker</span>
-  <span class="spacer"></span>
-  <button mat-mini-fab color="accent" (click)="openAddHabitDialog()">+</button>
+<mat-toolbar>
+  <div class="header">
+    <span>🌱 Habit Tracker</span>
+    <span class="spacer"></span>
+    <button mat-mini-fab color="accent" (click)="openAddHabitDialog()">
+      <i class="fas fa-solid fa-plus"></i>
+    </button>
+  </div>
 </mat-toolbar>
 
 <section class="dashboard">
   <div class="dashboard-info">
     <h2>Twój progres 📊</h2>
-    <p>Ukończono {{ completedHabits }} z {{ habits.length }} nawyków 🎉</p>
+    <p class="progress">Ukończono {{ completedHabits }} z {{ habits.length }} nawyków 🎉</p>
   </div>
 
   <p class="dashboard-trophies">
-    <span [class.active]="completionRate >= 100">🏆</span>
-    <span [class.active]="completionRate >= 200">🏆</span>
-    <span [class.active]="completionRate >= 300">🏆</span>
-    <span [class.active]="completionRate >= 400">🏆</span>
+    <span *ngFor="let h of habits; let i = index" [class.active]="completedHabits > i"> 🏆 </span>
   </p>
   <mat-progress-bar mode="determinate" [value]="completionRate"></mat-progress-bar>
 </section>
