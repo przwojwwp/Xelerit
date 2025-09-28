@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --output-path=dist/habit-tracker --base-href /Xelerit/ && npx angular-cli-ghpages --dir=dist/habit-tracker/browser"
   },
   "prettier": {
     "printWidth": 100,
